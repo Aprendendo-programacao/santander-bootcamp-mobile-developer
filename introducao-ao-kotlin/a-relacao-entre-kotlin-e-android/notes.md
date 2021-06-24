@@ -27,3 +27,5 @@
 * **2017**: Google anuncia suporte a Kotlin para desenvolvimento Android
 
 * **2018**: 2º linguagem preferida dos desenvolvedores
+
+* **2019**: Google anuncia que Kotlin é a nova linguagem oficial para desenvolvimento Android (_Kotlin first_)
