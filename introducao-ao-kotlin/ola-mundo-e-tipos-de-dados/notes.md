@@ -1,10 +1,10 @@
 # Olá mundo e Tipos de dados
 
-### Print "Hello World"
+### Print "Hello world!"
 
 ```kotlin
 fun main() {
-    println("Hello world")
+    println("Hello world!")
 }
 ```
 
