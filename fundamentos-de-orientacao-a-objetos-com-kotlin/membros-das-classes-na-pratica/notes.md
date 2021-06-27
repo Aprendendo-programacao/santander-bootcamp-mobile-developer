@@ -23,3 +23,17 @@ class Pessoa {
 
   println(pessoa.Endereco().rua ) // Rua teste
   ```
+
+### Parte II
+
+```kotlin
+class Pessoa {
+    var nome: String = "Jether"
+
+    var cpf: String = "123.125.323-31"
+
+    private set
+}
+```
+
+* `private set` = modificar o acesso do setters para privado, ou seja, esse atributo não poderá ser alterado após sua instanciação
