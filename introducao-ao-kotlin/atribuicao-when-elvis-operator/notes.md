@@ -12,7 +12,7 @@
   val maxValue = if (a > b) a else if (a < b) b else b
   ```
 
-  ```kotlin
+  ```kotling
   val minValue = if (a > b) {
     println("b($b) é o menor valor")
     b
