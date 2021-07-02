@@ -1,0 +1,7 @@
+package conta
+
+class ContaPessoaJuridica {
+
+
+
+}
