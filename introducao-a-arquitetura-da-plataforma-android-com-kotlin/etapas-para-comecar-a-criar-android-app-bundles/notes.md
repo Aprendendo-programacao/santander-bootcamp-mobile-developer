@@ -29,4 +29,4 @@
 
 - [ ] Visão Geral dos APKs divididos
 
-- [ ] Recursos adicionais
+- [ ] [Recursos adicionais](https://developer.android.com/guide/topics/resources/providing-resources?hl=pt-br)
