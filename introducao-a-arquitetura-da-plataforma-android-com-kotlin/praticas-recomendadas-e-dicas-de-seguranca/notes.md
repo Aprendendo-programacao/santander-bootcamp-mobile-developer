@@ -1,6 +1,6 @@
 # Práticas recomendadas e dicas de segurança
 
-# Práticas recomendadas para segurança de aplicativos
+### Práticas recomendadas para segurança de aplicativos
 
 * Aplicar comunicação segura (integridade das dados e dispositivos)
 
