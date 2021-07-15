@@ -1,5 +1,6 @@
 package com.example.calculadora_de_notas
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -26,12 +27,15 @@ class MainActivity : AppCompatActivity() {
                     Nota final: ${media}
                     Faltas: ${faltas}
                 """.trimIndent())
+
+                resultado.setTextColor(Color.GREEN)
             } else {
                 resultado.setText("""
                     Aluno foi reprovado 
                     Nota final: ${media}
                     Faltas: ${faltas}
                 """.trimIndent())
+                resultado.setTextColor(Color.RED)
             }
         }
 
