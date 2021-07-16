@@ -71,7 +71,7 @@ values.forEach {
 
 ### Vantagens em relação ao Array
 
-* Com a função `arrayOf`, é possível declaras os valores do Array no argumento
+* Com a função `arrayOf`, é possível declarar os valores do Array no argumento
 
   ```kotlin
   // Array
