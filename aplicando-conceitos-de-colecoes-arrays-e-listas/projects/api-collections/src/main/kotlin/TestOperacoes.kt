@@ -15,6 +15,15 @@ fun main() {
     println("Média salarial: ${salaries.average()}")
 
     // filter
-    println("Salários maiores que 1500.0:")
+    println("Salários maiores que '1500.0':")
     salaries.filter { it > 1500.0 }.forEach(::println)
+
+    // count
+    println(salaries.count { it in 2000.0..4000.0 })
+
+    // find
+    println(salaries.find { it == 2000.0 })
+
+    // any
+    println(salaries.any { it == 1000.0})
 }
