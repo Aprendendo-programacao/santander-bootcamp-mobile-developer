@@ -1,16 +1,3 @@
-data class Funcionario(
-    val nome: String,
-    val salario: Double,
-    val tipoContratacao: String,
-) {
-    override fun toString(): String {
-        return """
-            Nome: $nome
-            Salário: $salario
-        """.trimIndent()
-    }
-}
-
 fun main() {
     val joao = Funcionario("João", 1000.0, "CLT")
     val pedro = Funcionario("Pedro", 4000.0, "PJ")
