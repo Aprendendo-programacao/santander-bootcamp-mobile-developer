@@ -42,4 +42,6 @@
 
   * A aba debug é aberta automaticamente quando um *breakpoint* é acionado
 
+  * **OBS**: no modo *debug*, ao parar o app através de um *breakpoint*, o emulador emite um "*fake* ANR" (fim, forçado, da execução do app)
+
 * ***Layout Inspector***: diagnósticos, exclusivamente, de problemas na tela (componentes, *views*, etc)
