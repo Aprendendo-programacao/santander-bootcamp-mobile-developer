@@ -13,7 +13,7 @@
     <!--        app:constraint_referenced_ids="titleTXT, calculate_imc_btn" />-->
 
     <EditText
-        android:id="@+id/weightETT"
+        android:id="@+id/weightET"
         style="@style/input_style"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
         app:layout_constraintVertical_bias="0.354" />
 
     <EditText
-        android:id="@+id/heightETT"
+        android:id="@+id/heightET"
         style="@style/input_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weightETT"
+        app:layout_constraintTop_toBottomOf="@+id/weightET"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button

@@ -1,44 +1,41 @@
 package me.gabreuw.calculadora_imc
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doAfterTextChanged
+import androidx.core.widget.doOnTextChanged
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.w("lifecycle", "CREATE (criação da tela)")
-        // finish()
+        setListeners()
     }
 
-    override fun onStart() {
-        super.onStart()
-        Log.w("lifecycle", "START (tela visível)")
+    private fun setListeners() {
+        heightET?.doAfterTextChanged { text ->
+//            Toast.makeText(this, text.toString(), Toast.LENGTH_SHORT).show()
+        }
+
+        weightET.doOnTextChanged { text, _, _, _ ->
+//            titleTXT.text = text
+        }
+
+        calculate_imc_btn.setOnClickListener {
+            calculateIMC(weightET.text.toString(), heightET.text.toString())
+        }
+
     }
 
-    override fun onResume() {
-        super.onResume()
-        Log.w("lifecycle", "RESUME (interação com a tela disponível)")
-    }
+    private fun calculateIMC(weight: String, height: String) {
+        val weight = weight.toFloatOrNull()
+        val height = height.toFloatOrNull()
 
-    override fun onPause() {
-        Log.w("lifecycle", "PAUSE (interação com a tela indisponível")
-        super.onPause()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.w("lifecycle", "STOP (tela invisível, mas ainda existe)")
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        Log.w("lifecycle", "RESTART (tela retomada como foco)")
-    }
-
-    override fun onDestroy() {
-        Log.w("lifecycle", "DESTROY (tela destruída)")
-        super.onDestroy()
+        if (weight != null && height != null) {
+            val imc = weight / (height * height)
+            titleTXT.text = "Seu IMC é de %.2f".format(imc)
+        }
     }
 }

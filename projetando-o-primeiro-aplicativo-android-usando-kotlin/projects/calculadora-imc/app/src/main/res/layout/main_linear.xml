@@ -17,14 +17,14 @@
         android:textSize="48sp" />
 
     <EditText
-        android:id="@+id/weightETT"
+        android:id="@+id/weightET"
         style="@style/input_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_weight" />
 
     <EditText
-        android:id="@+id/heightETT"
+        android:id="@+id/heightET"
         style="@style/input_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

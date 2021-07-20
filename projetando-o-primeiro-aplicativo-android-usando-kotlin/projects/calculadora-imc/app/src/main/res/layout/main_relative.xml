@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/weightETT"
+        android:id="@+id/weightET"
         style="@style/input_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,13 +13,13 @@
         android:hint="@string/hint_weight" />
 
     <EditText
-        android:id="@+id/heightETT"
+        android:id="@+id/heightET"
         style="@style/input_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/weightETT"
-        android:layout_alignStart="@id/weightETT"
-        android:layout_alignEnd="@id/weightETT"
+        android:layout_below="@id/weightET"
+        android:layout_alignStart="@id/weightET"
+        android:layout_alignEnd="@id/weightET"
         android:layout_marginHorizontal="24dp"
         android:ems="10"
         android:hint="@string/hint_height"
