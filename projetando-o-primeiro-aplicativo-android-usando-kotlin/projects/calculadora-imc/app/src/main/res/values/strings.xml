@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">IMC</string>
-    <string name="hint_weight">Insira seu peso em KG</string>
+    <string name="hint_weight">Peso (Ex: 60 kg)</string>
     <string name="hint_height">Altura (Ex: 1.80 m)</string>
     <string name="txt_calculate_imc">Calcular</string>
 </resources>
