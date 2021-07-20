@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/weightETT"
+        style="@style/input_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:hint="@string/hint_weight" />
+
+    <EditText
+        android:id="@+id/heightETT"
+        style="@style/input_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/weightETT"
+        android:layout_alignStart="@id/weightETT"
+        android:layout_alignEnd="@id/weightETT"
+        android:layout_marginHorizontal="24dp"
+        android:ems="10"
+        android:hint="@string/hint_height"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/calculate_imc_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="#03A9F4"
+        android:padding="16dp"
+        android:text="@string/txt_calculate_imc"
+        android:textSize="16sp"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/titleTXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/calculate_imc_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_toEndOf="@id/calculate_imc_btn"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="#03A9F4"
+        android:textSize="48sp"
+        tools:visibility="visible" />
+
+
+</RelativeLayout>
