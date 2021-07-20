@@ -25,3 +25,5 @@
   * Começa no `onCreate()`
 
   * Fim no `onDestroy()`
+
+* Forçar a destruição da tela da aplicação (`finish()`)
