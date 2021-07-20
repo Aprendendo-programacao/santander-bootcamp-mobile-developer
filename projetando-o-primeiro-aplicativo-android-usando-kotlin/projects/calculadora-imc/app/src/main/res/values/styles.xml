@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="title_purple">
-        <item name="android:textColor">@android:color/holo_blue_bright</item>
-        <item name="android:textSize">48sp</item>
+    <style name="input_style">
+        <item name="android:layout_marginHorizontal">64dp</item>
+        <item name="android:layout_marginTop">36dp</item>
+        <item name="android:ems">10</item>
+        <item name="android:textAlignment">center</item>
         <item name="android:textStyle">bold</item>
     </style>
 </resources>
