@@ -1,12 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+# TextView, RadioButton e CheckBox
 
-    <TextView
+### TextView
+
+* **`sp`**
+
+  * Unidade de medida exclusiva para texto
+
+  * Respeita as dimensões de acessibilidade
+
+* **Exemplo**
+
+  ```xml
+  <TextView
         android:id="@+id/textView"
         style="@style/title_purple"
         android:layout_width="wrap_content"
@@ -16,8 +21,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+  ```
 
-    <RadioButton
+### RadioButton
+
+* **Exemplo**
+
+  ```xml
+  <RadioButton
         android:id="@+id/radioButton"
         style="@style/title_purple"
         android:layout_width="wrap_content"
@@ -29,8 +40,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.042" />
+  ``` 
 
-    <CheckBox
+### CheckBox
+
+* **Exemplo**
+
+  ```xml
+  <CheckBox
         style="@style/title_purple"
         android:textColor="@color/black"
         android:layout_width="wrap_content"
@@ -42,5 +59,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioButton"
         app:layout_constraintVertical_bias="0.207" />
+  ``` 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+### styles.xml
+
+* Armazena estilos de Views que podem ser reutilizadas em outras Views
+
+* Importar um estilo do `styles.xml` em uma view, utiliza-se o atributo `style`: `style="@style/<nome do estilo>"`
+
+* Ao alterar um estilo no `styles.xml`, refletirá em todos as View que importam esse estilo 
+
+* **Exemplo**
+
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <resources>
+
+      <style name="title_purple">
+          <item name="android:textColor">@android:color/holo_blue_bright</item>
+          <item name="android:textSize">48sp</item>
+          <item name="android:textStyle">bold</item>
+      </style>
+  </resources>
+  ```
