@@ -13,3 +13,11 @@
 ### Pattern Singleton
 
 * Objeto comum para toda a aplicação, ou seja, uma única instância de uma classe em toda a aplicação
+
+* **Exemplo**
+
+  ```kotlin
+  object Singleton {
+    // Código
+  }
+  ```
