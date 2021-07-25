@@ -3,5 +3,6 @@
     <string name="hint_weight">Peso (Ex: 60 kg)</string>
     <string name="hint_height">Altura (Ex: 1.80 m)</string>
     <string name="txt_calculate_imc">Calcular</string>
+    <string name="txt_back">Voltar</string>
     <string name="img_imc_rating">Classificação IMC</string>
 </resources>

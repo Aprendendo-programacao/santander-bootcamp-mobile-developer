@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         calculate_imc_btn.setOnClickListener {
             calculateIMC(weightET.text.toString(), heightET.text.toString())
         }
+
+        back_btn.setOnClickListener { restore() }
     }
 
     private fun calculateIMC(weight: String, height: String) {
@@ -29,7 +31,24 @@ class MainActivity : AppCompatActivity() {
             val imc = weight / (height * height)
 
             titleTXT.text = "Seu IMC é de %.2f".format(imc)
+            heightET.visibility = View.GONE
+            weightET.visibility = View.GONE
             imc_rating.visibility = View.VISIBLE
+            calculate_imc_btn.visibility = View.GONE
+            back_btn.visibility = View.VISIBLE
         }
+    }
+
+    private fun restore() {
+        imc_rating.visibility = View.GONE
+        back_btn.visibility = View.GONE
+
+        titleTXT.text = getString(R.string.app_name)
+
+        weightET.visibility = View.VISIBLE
+        weightET.text.clear()
+        heightET.visibility = View.VISIBLE
+        heightET.text.clear()
+        calculate_imc_btn.visibility = View.VISIBLE
     }
 }

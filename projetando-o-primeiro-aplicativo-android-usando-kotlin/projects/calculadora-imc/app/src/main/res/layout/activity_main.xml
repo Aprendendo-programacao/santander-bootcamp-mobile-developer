@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <!--    <androidx.constraintlayout.widget.Group-->
-    <!--        android:id="@+id/group"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:visibility="gone"-->
-    <!--        app:constraint_referenced_ids="titleTXT, calculate_imc_btn" />-->
 
     <EditText
         android:id="@+id/weightET"
@@ -19,14 +11,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="48dp"
-        android:layout_marginBottom="12dp"
         android:hint="@string/hint_weight"
         android:inputType="numberDecimal"
-        app:layout_constraintBottom_toTopOf="@+id/heightET"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.354" />
 
     <EditText
         android:id="@+id/heightET"
@@ -34,26 +25,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginBottom="92dp"
         android:ems="10"
         android:hint="@string/hint_height"
         android:inputType="numberDecimal"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_goneMarginBottom="12dp" />
+        app:layout_constraintTop_toBottomOf="@+id/weightET"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/calculate_imc_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="@color/primary_color"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="#03A9F4"
         android:text="@string/txt_calculate_imc"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline" />
+
+    <Button
+        android:id="@+id/back_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="#03A9F4"
+        android:text="@string/txt_back"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/guideline" />
 
@@ -64,30 +69,29 @@
         android:layout_marginTop="48dp"
         android:text="@string/app_name"
         android:textAlignment="center"
-        android:textColor="@color/primary_color"
+        android:textColor="#03A9F4"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imc_rating"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/img_imc_rating"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/calculate_imc_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTXT"
+        app:srcCompat="@mipmap/imc_rating_foreground" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="329dp" />
-
-    <ImageView
-        android:id="@+id/imc_rating"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:contentDescription="@string/img_imc_rating"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calculate_imc_btn"
-        app:srcCompat="@mipmap/imc_rating_foreground" />
-
+        app:layout_constraintGuide_percent="0.80" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
