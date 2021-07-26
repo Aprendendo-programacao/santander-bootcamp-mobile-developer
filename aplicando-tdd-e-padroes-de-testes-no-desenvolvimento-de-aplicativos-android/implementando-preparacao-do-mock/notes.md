@@ -29,7 +29,11 @@
       mockListContacts()
 
       // Validação
-      TODO("Validar valores de retorno do método")
+      val list = contactHelper.getListContacts()
+      assertEquals(
+        2, // Valor esperado
+        list.size // Valor atual
+      )
     }
 
     // Método "mock" (criação de uma lista "fake")
@@ -48,6 +52,20 @@
           )
         )
       )
+    }
+
+    @Test
+    fun `quando chamar o metodo getListContact sem contatos deve retornar uma lista vazia`() {
+      // Preparação
+      mockEmptyContactList()
+
+      // Validação
+      val list = contactHelper.getListContacts()
+      assertEquals(0, list.size)
+    }
+
+    private fun mockEmptyContactList() {
+      contactHelper.setListContacts(arrayListOf())
     }
   }
   ```
