@@ -1,7 +1,6 @@
 package me.gabreuw.lista_de_contatos
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
@@ -9,10 +8,14 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.edit
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import me.gabreuw.lista_de_contatos.ContactDetail.Companion.EXTRA_CONTACT
 
 class MainActivity : AppCompatActivity(), ClickItemContactListener {
@@ -28,9 +31,31 @@ class MainActivity : AppCompatActivity(), ClickItemContactListener {
         setContentView(R.layout.drawer_menu)
 
         initDrawer()
+        fetchContactList()
         bindViews()
-        updateContactList()
     }
+
+    private fun fetchContactList() {
+        val contactList = mutableListOf(
+            Contact(
+                "Igor Ferrani",
+                "(00) 0000-0000",
+                "img.png"
+            ),
+            Contact(
+                "Igor Ferrani",
+                "(00) 0000-0000",
+                "img.png"
+            )
+        )
+
+        getInstanceSharedPreferences().edit {
+            putString("contacts", Gson().toJson(contactList))
+        }
+    }
+
+    private fun getInstanceSharedPreferences() =
+        getSharedPreferences("lista_de_contatos.PREFERENCES", MODE_PRIVATE)
 
     private fun initDrawer() {
         val drawerLayout = findViewById<View>(R.id.drawer_layout) as DrawerLayout
@@ -52,24 +77,17 @@ class MainActivity : AppCompatActivity(), ClickItemContactListener {
     private fun bindViews() {
         rvContactList.adapter = adapter
         rvContactList.layoutManager = LinearLayoutManager(this)
+        updateContactList()
     }
 
-    private fun updateContactList() {
-        adapter.updateContactView(
-            mutableListOf(
-                Contact(
-                    "Igor Ferrani",
-                    "(00) 0000-0000",
-                    "img.png"
-                ),
-                Contact(
-                    "Igor Ferrani",
-                    "(00) 0000-0000",
-                    "img.png"
-                )
-            )
-        )
+    private fun getContactList(): MutableList<Contact> {
+        val contactList = getInstanceSharedPreferences().getString("contacts", "[]")
+        val turnsTypes = object : TypeToken<List<Contact>>() {}.type
+
+        return Gson().fromJson(contactList, turnsTypes)
     }
+
+    private fun updateContactList() = adapter.updateContactView(getContactList())
 
     private fun showToast(message: String) =
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
