@@ -2,6 +2,7 @@ package me.gabreuw.viewmodel
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -18,17 +19,54 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        logar(valor = "onCreate")
+
         initDados()
         initContador()
         initClick()
 
         validaContador()
+
+        finalizarApp()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        logar(valor = "onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        logar(valor = "onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        logar(valor = "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        logar(valor = "onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        logar(valor = "onDestroy")
+    }
+
+    private fun finalizarApp() {
+        finish()
     }
 
     private fun validaContador() {
         if (contador > 5) {
             contador = 0
         }
+    }
+
+    private fun logar(tag: String = "ciclo de vida", valor: String) {
+        Log.d(tag, valor)
     }
 
     private fun initClick() {
