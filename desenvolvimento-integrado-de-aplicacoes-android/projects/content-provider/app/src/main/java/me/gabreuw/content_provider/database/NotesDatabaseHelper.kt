@@ -18,7 +18,7 @@ class NotesDatabaseHelper(
         )
     }
 
-    override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {}
+    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, currentVersion: Int) {}
 
     companion object {
         const val TABLE_NAME = "Notes"

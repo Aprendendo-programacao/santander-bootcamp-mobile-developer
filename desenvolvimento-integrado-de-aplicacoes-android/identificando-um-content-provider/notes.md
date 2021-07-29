@@ -136,3 +136,41 @@
 
     }
     ```
+
+  * Instanciar a classe Helper no *Content Provider*
+
+    ```kotlin
+    private lateinit var dbHelper: NotesDatabaseHelper
+
+    override fun onCreate(): Boolean {
+        mUriMatcher = UriMatcher(UriMatcher.NO_MATCH)
+
+        mUriMatcher.addURI(AUTHORITY, "notes", NOTES)
+        mUriMatcher.addURI(AUTHORITY, "notes/#", NOTES_BY_ID)
+
+        if (context != null) {
+            dbHelper = NotesDatabaseHelper(context as Context)
+        }
+
+        return true
+    }
+    ```
+
+  * Implementar o método `delete`
+
+    ```kotlin
+    override fun delete(uri: Uri, selection: String?, selectionArgs: Array<String>?): Int {
+        if (mUriMatcher.match(uri) != NOTES_BY_ID) {
+            throw UnsupportedOperationException("UIR inválida para exclusão!")
+        }
+
+        val db: SQLiteDatabase = dbHelper.writableDatabase
+        val affectedLines = db.delete(TABLE_NAME, "$_ID = ?", arrayOf(uri.lastPathSegment))
+
+        db.close()
+
+        context?.contentResolver?.notifyChange(uri, null) // IMPORTANTE: sempre notificar o Context após qualquer ação no Content Provider
+
+        return affectedLines
+    }
+    ``` 
