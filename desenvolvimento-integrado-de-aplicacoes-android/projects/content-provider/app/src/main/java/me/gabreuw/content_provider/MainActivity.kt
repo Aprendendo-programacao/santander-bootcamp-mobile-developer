@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<Cursor> 
         setContentView(R.layout.activity_main)
 
         noteAdd = findViewById(R.id.note_add)
-        noteAdd.setOnClickListener {  }
+        noteAdd.setOnClickListener { }
 
         adapter = NotesAdapter()
         adapter.setHasStableIds(true)
