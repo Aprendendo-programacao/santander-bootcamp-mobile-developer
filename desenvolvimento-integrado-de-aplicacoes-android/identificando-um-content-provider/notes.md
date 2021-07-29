@@ -174,3 +174,107 @@
         return affectedLines
     }
     ``` 
+
+  * Implementar o método `getType` (Nesse projeto não terá suporte a arquivos, apenas dados)
+
+    ```kotlin
+    override fun getType(uri: Uri): String? =
+        throw UnsupportedOperationException("Uri não implementado!")
+    ```
+
+  * Implementar o método `insert`
+
+    ```kotlin
+    override fun insert(uri: Uri, values: ContentValues?): Uri? {
+        if (mUriMatcher.match(uri) != NOTES) {
+            throw UnsupportedOperationException("Uri inválida para inserção!")
+        }
+
+        val db: SQLiteDatabase = dbHelper.writableDatabase
+
+        val id = db.insert(TABLE_NAME, null, values)
+        val insertUri: Uri = Uri.withAppendedPath(BASE_URI, id.toString())
+
+        db.close()
+
+        context?.contentResolver?.notifyChange(uri, null)
+
+        return insertUri
+    }
+    ```
+
+  * Implementar o método `query`
+
+    ```kotlin
+    override fun query(
+        uri: Uri, 
+        projection: Array<String>?, 
+        selection: String?,
+        selectionArgs: Array<String>?, 
+        sortOrder: String?
+    ): Cursor? {
+        return when {
+            mUriMatcher.match(uri) == NOTES -> {
+                val db: SQLiteDatabase = dbHelper.writableDatabase
+
+                val cursor: Cursor = db.query(
+                    TABLE_NAME,
+                    projection,
+                    selection,
+                    selectionArgs,
+                    null,
+                    null,
+                    sortOrder
+                )
+                cursor.setNotificationUri(context?.contentResolver, uri)
+
+                db.close()
+
+                cursor
+            }
+
+            mUriMatcher.match(uri) == NOTES_BY_ID -> {
+                val db: SQLiteDatabase = dbHelper.writableDatabase
+
+                val cursor: Cursor = db.query(
+                    TABLE_NAME,
+                    projection,
+                    "$_ID = ?",
+                    arrayOf(uri.lastPathSegment),
+                    null,
+                    null,
+                    sortOrder
+                )
+                cursor.setNotificationUri(context?.contentResolver, uri)
+
+                db.close()
+
+                cursor
+            }
+
+            else -> throw UnsupportedOperationException("URI não implementada!")
+        }
+    }
+    ```
+
+  * Implementar o método `update`
+
+    ```kotlin
+    override fun update(
+        uri: Uri, values: ContentValues?, selection: String?,
+        selectionArgs: Array<String>?
+    ): Int {
+        if (mUriMatcher.match(uri) != NOTES_BY_ID) {
+            throw UnsupportedOperationException("URI não implementada!")
+        }
+
+        val db: SQLiteDatabase = dbHelper.writableDatabase
+        val affectedLines = db.update(TABLE_NAME, values, "$_ID = ?", arrayOf(uri.lastPathSegment))
+        
+        db.close()
+        
+        context?.contentResolver?.notifyChange(uri, null)
+        
+        return affectedLines
+    }
+    ```
