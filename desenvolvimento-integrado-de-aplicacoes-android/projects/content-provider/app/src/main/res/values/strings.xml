@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">content-provider</string>
     <string name="note_text_remove">Remover</string>
+    <string name="note_title_hint">Título</string>
+    <string name="note_description_hint">Descrição</string>
 </resources>
